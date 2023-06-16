@@ -1,0 +1,63 @@
+<%- include ('partials/nav') %>
+
+<div class="breadcrumbs">
+    <div class="container">
+        <a href="/shop">Home</a>
+        <i class="fa fa-chevron-right breadcrumb-separator"></i>
+        <span>Shop</span>
+    </div>
+</div>
+
+<div class="products-section container">
+    <div class="sidebar">
+        <h3 class="mt-3"> <%=category.name%> </h3>
+    </div>
+
+    <div>
+        <div class="products text-center">
+
+            <!-- todo - Dynamiser cette liste -->
+            <!-- Etape 2 : on boucle pour afficher les produits en fonction de la catégorie grace aux assocations effectuées dans l'index -->
+
+            <% for (const product of category.categories) { %>
+            <div class="product">
+                <a href="/product/<%=product.id%>">
+                    <img src="<%=product.image%>" alt="<%=product.title%>" />
+                </a>
+                <a href="/product/<%=product.id%>">
+                    <div class="<%=product.title.toLowerCase%>"><%=product.title%></div>
+                </a>
+                <div class="product-price">€<%=product.price%></div>
+            </div>
+            <% } %>
+            <!-- <div class="product">
+                <a href="/product/2">
+                    <img
+                        src="/img/macbook-pro-laravel.png"
+                        alt="Nom du produit"
+                    />
+                </a>
+                <a href="/product/2">
+                    <div class="product-name">Nom du Produit</div>
+                </a>
+                <div class="product-price">€3750</div>
+            </div>
+
+            <div class="product">
+                <a href="/product/3">
+                    <img
+                        src="/img/macbook-pro-laravel.png"
+                        alt="Nom du produit"
+                    />
+                </a>
+                <a href="/product/3">
+                    <div class="product-name">Nom du Produit</div>
+                </a>
+                <div class="product-price">€12540</div>
+            </div> -->
+
+        </div>
+    </div>
+</div>
+
+<% include ('partials/foot') %>

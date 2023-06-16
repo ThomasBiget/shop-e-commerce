@@ -1,0 +1,31 @@
+<%- include ('partials/nav') %>
+
+<div class="breadcrumbs">
+    <div class="container">
+        <a href="/shop">Home</a>
+        <i class="fa fa-chevron-right breadcrumb-separator"></i>
+        <span>Shop</span>
+        <i class="fa fa-chevron-right breadcrumb-separator"></i>
+        
+        <!-- Etape 2 : ici on va afficher tous les détail du produit en fonction de l'id de l'url -->
+        <span><%=product.title%></span>
+    </div>
+</div>
+
+<div class="product-section container">
+    <div class="product-section-image">
+        <img src="<%=product.image%>" alt="" />
+    </div>
+    <div class="product-section-information">
+        <h1 class="product-section-title"><%=product.title%></h1>
+        <div class="product-section-price"><%=product.price%>€</div>
+
+        <p><%=product.description%></p>
+
+        <form action="/cart/1" method="POST">
+            <input class="button" value="Ajouter au panier" type="submit">
+        </form>
+    </div>
+</div>
+
+<%- include ('partials/foot') %>
